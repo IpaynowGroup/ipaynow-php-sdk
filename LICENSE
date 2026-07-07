@@ -1,0 +1,10 @@
+iPayNow Java SDK Proprietary License
+
+Copyright (c) 2026 iPayNow.
+All rights reserved.
+
+This software and its documentation are proprietary to iPayNow. Unauthorized copying, modification, distribution, sublicensing, or publication of this software, in whole or in part, is prohibited unless expressly permitted by iPayNow in writing.
+
+The software is provided for authorized integration with iPayNow payment services only. Users are responsible for protecting merchant credentials, validating integration behavior in their own environments, and complying with applicable payment, privacy, and security requirements.
+
+No warranty is provided except as expressly agreed in a separate written agreement.
