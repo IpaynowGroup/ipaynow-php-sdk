@@ -1,7 +1,7 @@
 {
   "name": "ipaynow/ipaynow-php-sdk",
   "description": "现在支付（iPayNow）PHP SDK：统一下单、订单查询、退款、撤销、回调验签。",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "library",
   "license": "proprietary",
   "homepage": "https://www.ipaynow.cn",

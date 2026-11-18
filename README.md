@@ -111,7 +111,7 @@ $action = $config->endpoint((new H5UnifiedOrderRequest($params))->path());
 
 - 统一下单（JSAPI/APP/H5/小程序/聚合码）、订单查询：`responseCode === 'A001'`（继承自 `IpaynowResponse` 默认实现）。
 - 退款、退款查询、撤销、撤销查询：`responseCode === 'R000'`（`RefundResponse`/`RefundQueryResponse`/`ReverseResponse`/`ReverseQueryResponse` 各自覆盖 `isSuccess()`）。
-- 支付结果回调 `PaymentNotifyResponse`：`transStatus === 'A001'`。
+- 支付结果回调 `PaymentNotifyResponse`：`transStatus === 'A001'`；部分通道（如支付宝 APP 支付）只下发 `tradeStatus`，此时回退读取 `tradeStatus`（`status()` 返回最终判定值）。
 - 退款结果回调 `RefundNotifyResponse`：`tradeStatus === 'A001'`。
 
 也可以直接读取原始字段：

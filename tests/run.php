@@ -437,6 +437,14 @@ $paymentNotifyFailure = newLoadedResponse(PaymentNotifyResponse::class, array('t
 assertTrue($paymentNotifySuccess->isSuccess(), 'PaymentNotifyResponse transStatus=A001 应成功');
 assertTrue(!$paymentNotifyFailure->isSuccess(), 'PaymentNotifyResponse transStatus=A002 应失败');
 
+$paymentNotifyTradeStatus = newLoadedResponse(PaymentNotifyResponse::class, array('tradeStatus' => 'A001'));
+assertTrue($paymentNotifyTradeStatus->isSuccess(), 'PaymentNotifyResponse tradeStatus=A001 应成功');
+assertEquals('A001', $paymentNotifyTradeStatus->getTradeStatus(), 'PaymentNotifyResponse getTradeStatus()');
+$paymentNotifyTradeFailure = newLoadedResponse(PaymentNotifyResponse::class, array('tradeStatus' => 'A002'));
+assertTrue(!$paymentNotifyTradeFailure->isSuccess(), 'PaymentNotifyResponse tradeStatus=A002 应失败');
+$paymentNotifyBoth = newLoadedResponse(PaymentNotifyResponse::class, array('transStatus' => 'A002', 'tradeStatus' => 'A001'));
+assertTrue(!$paymentNotifyBoth->isSuccess(), 'PaymentNotifyResponse 同时存在时 transStatus 优先');
+
 $refundNotifySuccess = newLoadedResponse(RefundNotifyResponse::class, array('tradeStatus' => 'A001'));
 $refundNotifyFailure = newLoadedResponse(RefundNotifyResponse::class, array('tradeStatus' => 'A002'));
 assertTrue($refundNotifySuccess->isSuccess(), 'RefundNotifyResponse tradeStatus=A001 应成功');
